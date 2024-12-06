@@ -1,0 +1,13 @@
+if [ $1 == "skipgram" ] ;
+then
+python skipgram.py --epochs 100 --window 3 --dim 300 --model skipgram_neg_model.npy --train data/merged_sentences.txt
+
+elif [ $1 == "cbow" ];
+then
+python cbow.py --epochs 100 --window 3 --dim 300 --model cbow_model.npy --train data/merged_sentences.txt
+
+elif [ $1 == "skipgram-neg" ];
+then
+python skipgram-neg.py --epochs 100 --window 3 --dim 300 --model skipgram_neg_model.npy --train data/merged_sentences.txt --neg_samples 5
+
+fi;
